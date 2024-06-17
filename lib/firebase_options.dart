@@ -53,11 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBEp_fPNL1HLGXERpv_rLrLqF9x84OhZhE',
-    authDomain: 'act4-6c6f7.firebaseapp.com',
-    projectId: 'act4-6c6f7',
-    storageBucket: 'act4-6c6f7.appspot.com',
-    messagingSenderId: '984479240610',
-    appId: '1:984479240610:web:22ec02ba4a5f0abd50e2fb'
+    apiKey: 'AIzaSyCVPn9g696jws65Z3TuNoBp0O4WlMQeP9E',
+    authDomain: 'restaurant-748d4.firebaseapp.com',
+    projectId: 'restaurant-748d4',
+    storageBucket: 'restaurant-748d4.appspot.com',
+    messagingSenderId: '390937777141',
+    appId: '1:390937777141:web:de7deafcef6ac1814d46bc'
   );
 }

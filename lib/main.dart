@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:act4/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:act4/widgets/opciones.dart';
+import 'package:act4/widgets/productos.dart';
+import 'package:act4/widgets/tarjeta.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -208,29 +211,74 @@ class PaginaInicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text('RESTAURANTE'),
-        backgroundColor: const Color(0xfff7c8ff),
-        elevation: 8,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('¡Inicio de sesión exitoso!'),
-            const SizedBox(height: 20.0),
-            Text('Correo electrónico: $_email'),
-            const SizedBox(height: 20.0),
-            ElevatedButton(
-              child: const Text('Cerrar sesión'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(340, 40),
-                backgroundColor: const Color(0xfff1cdee),
-              ),
-              onPressed: () => _cerrarSesion(context),
+            Text('Hola: $_email'),
+            Text(
+              "Que vas a comer hoy?",
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notification_important),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search_outlined),
+          ),
+        ],
+      ),
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.all(14),
+        children: [
+          const Tarjeta(),
+          const SizedBox(height: 20),
+          Text(
+            "Categorias",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 15),
+          const Opciones(),
+          const SizedBox(height: 25),
+          Text(
+            "Seleccion del Dia",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 15),
+          const Productos(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_outlined),
+            activeIcon: Icon(Icons.edit_calendar_outlined),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: "Home",
+            activeIcon: Icon(Icons.chat_bubble),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
+            label: "Home",
+          ),
+        ],
       ),
     );
   }
